@@ -1,3 +1,37 @@
+# Buildly - AI-Powered Website & Presentation Builder
+
+**Build anything instantly with Gemini 2.5 Flash**
+
+Buildly is a full-stack Next.js application that leverages Google's Gemini 2.5 Flash AI to instantly generate websites and presentations from simple text prompts.
+
+## ✨ Features
+
+### 🌐 Website Builder (`/build`)
+- **AI Code Generation**: Generate responsive HTML + Tailwind CSS websites from text descriptions
+- **Live Preview**: Real-time preview of generated code
+- **Monaco Editor**: Professional code editor with syntax highlighting
+- **Download**: Export generated websites as ZIP files
+- **Edit & Regenerate**: Modify code in real-time or regenerate with new prompts
+
+### 📊 PPT Generator (`/ppt`)
+- **AI Slide Creation**: Generate professional presentation outlines
+- **Auto Image Integration**: Automatically fetches relevant images from Pexels
+- **Preview Cards**: Visual preview of each slide with title, bullets, and thumbnail
+- **PowerPoint Export**: Download as `.pptx` file using PptxGenJS
+
+### 🔐 Authentication
+- **Supabase Auth**: Secure user authentication
+- **Animated Login/Signup**: Beautiful character-based login interface
+- **API Key Management**: Users store their own Gemini API key securely
+
+## 🚀 Getting Started
+
+### Prerequisites
+- Node.js 18+ and npm
+- Supabase account (free tier works)
+- Gemini API key from [Google AI Studio](https://aistudio.google.com/app/apikey)
+- (Optional) Pexels API key from [Pexels](https://www.pexels.com/api/)
+
 This is a [Next.js](https://nextjs.org) project bootstrapped with [`create-next-app`](https://nextjs.org/docs/app/api-reference/cli/create-next-app).
 
 ## Getting Started

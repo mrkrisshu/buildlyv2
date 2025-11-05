@@ -1,6 +1,6 @@
 "use client";
 
-import { useState, useEffect } from "react";
+import { Suspense, useState, useEffect } from "react";
 import { useRouter, useSearchParams } from "next/navigation";
 import { CodeEditor } from "@/components/editor/CodeEditor";
 import { Button } from "@/components/ui/button";
@@ -9,7 +9,7 @@ import { generateCodeWithGemini } from "@/lib/gemini";
 import { createCodeZip, downloadBlob } from "@/lib/zip";
 import Link from "next/link";
 
-export default function BuildPage() {
+function BuildPageInner() {
   const router = useRouter();
   const searchParams = useSearchParams();
   const initialPrompt = searchParams.get("prompt") || "";
@@ -194,5 +194,19 @@ export default function BuildPage() {
         </p>
       </div>
     </div>
+  );
+}
+
+export default function BuildPage() {
+  return (
+    <Suspense
+      fallback={
+        <div className="h-screen flex items-center justify-center bg-slate-950">
+          <p className="text-white text-sm">Loading...</p>
+        </div>
+      }
+    >
+      <BuildPageInner />
+    </Suspense>
   );
 }

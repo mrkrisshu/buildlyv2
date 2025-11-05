@@ -1,12 +1,12 @@
 "use client";
 
 import { HeroWave } from "@/components/ai-input-hero";
-import { useEffect, useState } from "react";
+import { Suspense, useEffect, useState } from "react";
 import { useRouter, useSearchParams } from "next/navigation";
 import { getCurrentUser, getUserGeminiKey, saveUserGeminiKey } from "@/lib/supabase";
 import { ApiKeyModal } from "@/components/ui/api-key-modal";
 
-export default function Home() {
+function HomeInner() {
   const router = useRouter();
   const searchParams = useSearchParams();
   const needApiKey = searchParams.get("needApiKey");
@@ -93,5 +93,19 @@ export default function Home() {
         </p>
       </div>
     </>
+  );
+}
+
+export default function Home() {
+  return (
+    <Suspense
+      fallback={
+        <div className="h-screen flex items-center justify-center bg-slate-950">
+          <p className="text-white text-sm">Loading...</p>
+        </div>
+      }
+    >
+      <HomeInner />
+    </Suspense>
   );
 }
